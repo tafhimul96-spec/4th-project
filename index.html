@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!-- <html lang="en" class="scroll-smooth"> -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Tracker - Available Jobs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen">
+
+    <!-- Header / Stats -->
+    <div class="border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <h1 class="text-2xl sm:text-3xl font-bold mb-6">Job Application Tracker</h1>
+
+            <div class=" rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-sm">
+                <div class="grid grid-cols-3 divide-x divide-gray-200 dark:divide-gray-700">
+                    <div class="px-6 py-5 ">
+                        <div class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                            Total
+                        </div>
+                        <div class="mt-1 text-3xl font-bold">
+                            <span id="totalCount">8</span>
+                        </div>
+                    </div>
+                    <div class="px-6 py-5  bg-green-50/50 dark:bg-green-950/30">
+                        <div class="text-sm font-medium text-green-700 dark:text-green-400 uppercase tracking-wide">
+                            Interview
+                        </div>
+                        <div class="mt-1 text-3xl font-bold text-green-700 dark:text-green-400">
+                            <span id="interviewCount">0</span>
+                        </div>
+                    </div>
+                    <div class="px-6 py-5  bg-red-50/50 dark:bg-red-950/30">
+                        <div class="text-sm font-medium text-red-700 dark:text-red-400 uppercase tracking-wide">
+                            Rejected
+                        </div>
+                        <div class="mt-1 text-3xl font-bold text-red-700 dark:text-red-400">
+                            <span id="rejectedCount">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Available Jobs</h2>
+
+            <!-- Filter Tabs -->
+            <div class="flex border-b border-gray-200 dark:border-gray-700">
+                <button id="allTab" class="tab-btn px-6 py-3 font-medium border-b-2 border-blue-600 text-blue-600">
+                    All
+                </button>
+
+                <button id="interviewTab" class="tab-btn px-6 py-3 font-medium text-gray-500">
+                    Interview
+                </button>
+
+                <button id="rejectedTab" class="tab-btn px-6 py-3 font-medium text-gray-500">
+                    Rejected
+                </button>
+            </div>
+        </div>
+
+        <!-- Job Cards List (all cards in one container) -->
+        <div id="jobList" class="space-y-6">
+
+            <!-- Example Job Card 1 -->
+            <div class="job-card bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden"
+                data-status="not-applied">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Mobile First Corp</h3>
+                        <button class="text-gray-400 hover:text-red-500 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 deleteBtn" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">React Native Developer</p>
+
+                    <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-600 dark:text-gray-400">
+                        <span>Remote</span>
+                        <span>•</span>
+                        <span>Full-time</span>
+                        <span>•</span>
+                        <span class="font-medium">$130,000 – $175,000</span>
+                    </div>
+
+                    <div
+                        class="inline-block px-4 py-1 mb-4 text-sm font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 ">
+                        NOT APPLIED
+                    </div>
+
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                        Build cross-platform mobile applications using React Native. Work on products used by millions
+                        of users worldwide.
+                    </p>
+
+                    <div class="flex flex-wrap gap-3">
+                        <button
+                            class="interviewBtn px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition shadow-sm">
+                            INTERVIEW
+                        </button>
+
+                        <button
+                            class="rejectBtn px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition shadow-sm">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Example Job Card 2 -->
+            <div class="job-card bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden"
+                data-status="not-applied">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">WebFlow Agency</h3>
+                        <button class="text-gray-400 hover:text-red-500 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 deleteBtn" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Web Designer & Developer</p>
+
+                    <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-600 dark:text-gray-400">
+                        <span>Los Angeles, CA</span>
+                        <span>•</span>
+                        <span>
+                            Part-time
+                        </span>
+                        <span>•</span>
+                        <span class="font-medium"> $80,000 - $120,000</span>
+                    </div>
+
+                    <div
+                        class="inline-block px-4 py-1 mb-4 text-sm font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded-full">
+                        NOT APPLIED
+                    </div>
+
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                        Create stunning web experiences for high-profile clients. Must have portfolio and experience
+                        with modern web design trends.
+                    </p>
+
+                    <div class="flex flex-wrap gap-3">
+                        <button
+                            class="interviewBtn px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition shadow-sm">
+                            INTERVIEW
+                        </button>
+
+                        <button
+                            class="rejectBtn px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition shadow-sm">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Example Job Card 3-->
+            <div class="job-card bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden"
+                data-status="not-applied">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">DataViz Solutions</h3>
+                        <button class="text-gray-400 hover:text-red-500 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 deleteBtn" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Data Visualization Specialist
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-600 dark:text-gray-400">
+                        <span>Boston, MA</span>
+                        <span>•</span>
+                        <span>Full-time</span>
+                        <span>•</span>
+                        <span class="font-medium"> $125,000 - $165,000</span>
+                    </div>
+
+                    <div
+                        class="inline-block px-4 py-1 mb-4 text-sm font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded-full">
+                        NOT APPLIED
+                    </div>
+
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                        Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong
+                        analytical thinking.
+                    </p>
+
+                    <div class="flex flex-wrap gap-3">
+                        <button
+                            class="interviewBtn px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition shadow-sm">
+                            INTERVIEW
+                        </button>
+
+                        <button
+                            class="rejectBtn px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition shadow-sm">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Example Job Card 4 -->
+            <div class="job-card bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden"
+                data-status="not-applied">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">CloudFirst Inc</h3>
+                        <button class="text-gray-400 hover:text-red-500 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 deleteBtn" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">deleteBtn</p>
+
+                    <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-600 dark:text-gray-400">
+                        <span>Seattle, WA</span>
+                        <span>•</span>
+                        <span>Full-time</span>
+                        <span>•</span>
+                        <span class="font-medium">$140,000 - $190,000</span>
+                    </div>
+
+                    <div
+                        class="inline-block px-4 py-1 mb-4 text-sm font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded-full">
+                        NOT APPLIED
+                    </div>
+
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                        Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps
+                        practices and cloud infrastructure.
+                    </p>
+
+                    <div class="flex flex-wrap gap-3">
+                        <button
+                            class="interviewBtn px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition shadow-sm">
+                            INTERVIEW
+                        </button>
+
+                        <button
+                            class="rejectBtn px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition shadow-sm">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Example Job Card 5 -->
+            <div class="job-card bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden"
+                data-status="not-applied">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Innovation Labs</h3>
+                        <button class="text-gray-400 hover:text-red-500 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 deleteBtn" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">UI/UX Engineer</p>
+
+                    <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-600 dark:text-gray-400">
+                        <span>
+                            Austin, TX
+                        </span>
+                        <span>•</span>
+                        <span>Full-time</span>
+                        <span>•</span>
+                        <span class="font-medium">$110,000 - $150,000</span>
+                    </div>
+
+                    <div
+                        class="inline-block px-4 py-1 mb-4 text-sm font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded-full">
+                        NOT APPLIED
+                    </div>
+
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                        Build cross-platform mobile applications using React Native. Work on products used by millions
+                        of users worldwide.
+                    </p>
+
+                    <div class="flex flex-wrap gap-3">
+                        <button
+                            class="interviewBtn px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition shadow-sm">
+                            INTERVIEW
+                        </button>
+
+                        <button
+                            class="rejectBtn px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition shadow-sm">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Example Job Card 6-->
+            <div class="job-card bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden"
+                data-status="not-applied">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">MegaCorp Solutions</h3>
+                        <button class="text-gray-400 hover:text-red-500 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 deleteBtn" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">JavaScript Developer</p>
+
+                    <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-600 dark:text-gray-400">
+                        <span>New York, NY</span>
+                        <span>•</span>
+                        <span>Full-time</span>
+                        <span>•</span>
+                        <span class="font-medium">$130,000 – $170,000</span>
+                    </div>
+
+                    <div
+                        class="inline-block px-4 py-1 mb-4 text-sm font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded-full">
+                        NOT APPLIED
+                    </div>
+
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                        Build enterprise applications with JavaScript and modern frameworks. We offer competitive
+                        compensation, health insurance, and professional development opportunities.
+                    </p>
+
+                    <div class="flex flex-wrap gap-3">
+                        <button
+                            class="interviewBtn px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition shadow-sm">
+                            INTERVIEW
+                        </button>
+
+                        <button
+                            class="rejectBtn px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition shadow-sm">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Example Job Card 7-->
+            <div class="job-card bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden"
+                data-status="not-applied">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">StartupXYZ</h3>
+                        <button class="text-gray-400 hover:text-red-500 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 deleteBtn" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Full Stack Engineer</p>
+
+                    <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-600 dark:text-gray-400">
+                        <span>Remote</span>
+                        <span>•</span>
+                        <span>Full-time</span>
+                        <span>•</span>
+                        <span class="font-medium">$120,000 – $160,000</span>
+                    </div>
+
+                    <div
+                        class="inline-block px-4 py-1 mb-4 text-sm font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded-full">
+                        NOT APPLIED
+                    </div>
+
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                        Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.
+                    </p>
+
+                    <div class="flex flex-wrap gap-3">
+                        <button
+                            class="interviewBtn px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition shadow-sm">
+                            INTERVIEW
+                        </button>
+
+                        <button
+                            class="rejectBtn px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition shadow-sm">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Example Job Card 8 -->
+            <div class="job-card bg-white dark:bg-gray-800 shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden"
+                data-status="not-applied">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">TechCorp Industries</h3>
+                        <button class="text-gray-400 hover:text-red-500 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Senior Frontend Developer</p>
+
+                    <div class="flex flex-wrap gap-2 mb-4 text-sm text-gray-600 dark:text-gray-400">
+                        <span>San Francisco, CA</span>
+                        <span>•</span>
+                        <span>Full-time</span>
+                        <span>•</span>
+                        <span class="font-medium">$130,000 – $175,000</span>
+                    </div>
+
+                    <div
+                        class="inline-block px-4 py-1 mb-4 text-sm font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 rounded-full">
+                        NOT APPLIED
+                    </div>
+
+                    <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                        We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.
+                    </p>
+
+                    <div class="flex flex-wrap gap-3">
+                        <button
+                            class="interviewBtn px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition shadow-sm">
+                            INTERVIEW
+                        </button>
+
+                        <button
+                            class="rejectBtn px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition shadow-sm">
+                            REJECTED
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    <script src="./main.js"></script>
+
+</body>
+
+</html>
