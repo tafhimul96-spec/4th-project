@@ -71,8 +71,6 @@ function filterJobs(status) {
     showEmptyState(visibleCount);
 }
 
-
-
 function showEmptyState(count) {
     let noJob = document.getElementById("noJob");
 
